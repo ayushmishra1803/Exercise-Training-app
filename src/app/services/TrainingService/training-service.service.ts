@@ -54,7 +54,6 @@ export class TrainingServiceService {
 
 
 
-
   completeExercise()
   {
     this.adddatatodatabse({...this.runningExercise,date:new Date(),state:'completed'});

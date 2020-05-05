@@ -35,7 +35,7 @@ export class AuthService {
       authData.password,
     ).then(result=>{
       console.log(result);
-      this.authSuccessfully();
+     
     })
     .catch(err=>{
       console.log(err);
@@ -51,7 +51,7 @@ export class AuthService {
     authData.password
   ).then(result => {
     console.log(result);
-    this.authSuccessfully();
+    
   })
     .catch(err => {
       console.log(err);
@@ -59,13 +59,12 @@ export class AuthService {
 }
 
 
+
+
+
   logout(){
-    this.service.cancelSubscription();
     this.afauth.signOut();
-  
-    this.authChange.next(false);
-    this.router.navigate(['/login']);
-    this.auth = false;
+   
   }
 
   
@@ -76,11 +75,29 @@ export class AuthService {
 
 
 
-  private authSuccessfully()
+  
+
+
+  AuthListener()
   {
-    this.auth=true;
-    this.authChange.next(true);
-    this.router.navigate(['/training']); 
+    this.afauth.authState.subscribe(result=>{
+      if(result)
+      {
+        this.auth = true;
+        this.authChange.next(true);
+        this.router.navigate(['/training']); 
+      }
+      else{
+
+        this.service.cancelSubscription();
+
+
+        this.authChange.next(false);
+        this.router.navigate(['/login']);
+        this.auth = false;
+      }
+    }
+    )
   }
 
 }
