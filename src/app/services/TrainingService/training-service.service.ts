@@ -46,8 +46,6 @@ export class TrainingServiceService {
 
 
 
-
-
   getRunningExercise()
   {
     return {...this.runningExercise};
