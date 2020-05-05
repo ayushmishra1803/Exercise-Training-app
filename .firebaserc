@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ng-fitness-tracker-eb57c": {
+      "hosting": {
+        "training-app": [
+          "ng-fitness-tracker-eb57c"
+        ]
+      }
+    }
+  }
+}
