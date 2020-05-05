@@ -24,6 +24,7 @@
       </mat-form-field>
       <mat-checkbox ngModel name="agree" required color="primary">Agree Treams and Conditions</mat-checkbox>
 
-      <button mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+      <button  *ngIf="!isloading" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+        <mat-spinner *ngIf="isloading"></mat-spinner>
 </form>
 </section>

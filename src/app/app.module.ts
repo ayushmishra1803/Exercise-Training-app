@@ -1,3 +1,4 @@
+import { SharedService } from './services/shared/shared.service';
 
 
 import { environment } from '../environments/environment';
@@ -51,7 +52,7 @@ import { AngularFireModule } from '@angular/fire';
     AngularFireAuthModule
    
   ],
-  providers: [AuthService,TrainingServiceService],
+  providers: [AuthService,TrainingServiceService,SharedService],
   bootstrap: [AppComponent],
   entryComponents:[TrainingstopComponent]
 })

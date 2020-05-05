@@ -1,3 +1,5 @@
+import { SharedService } from './../../services/shared/shared.service';
+import { Subscription } from 'rxjs';
 import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -9,12 +11,17 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private  service:AuthService) { }
+  constructor(private  service:AuthService,private shared:SharedService) { }
 
   maxDate;
+  isloading = false;
+  private loadingsub: Subscription;
 
   ngOnInit(): void 
   {
+    this.loadingsub=this.shared.loadingStatechanged.subscribe(load=>{
+      this.isloading=load;
+    })
     this.maxDate=new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
   
