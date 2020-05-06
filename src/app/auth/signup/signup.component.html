@@ -9,7 +9,7 @@
     
       <mat-form-field>
         <mat-label>Enter the Password</mat-label>
-        <input matInput placeholder="Enter password" value="" name="password" ngModel  minlength="8" required #pass="ngModel">
+        <input matInput type="password" placeholder="Enter password" value="" name="password" ngModel  minlength="8" required #pass="ngModel">
         <mat-hint>Password Should be of 8 charater </mat-hint>
         <mat-hint align="end">{{pass.value?.length}}/8</mat-hint>
         <mat-error *ngIf="pass.hasError('required')"> Password is required</mat-error>

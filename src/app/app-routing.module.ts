@@ -1,3 +1,5 @@
+import { WalkComponent } from './cards/walk/walk.component';
+import { YogaComponent } from './cards/yoga/yoga.component';
 import { TrainingComponent } from './training/training.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
   {path:'training',component:TrainingComponent,canActivate:[AuthGuard]},
+  {path:'yoga',component:YogaComponent},
+  {path:'walk',component:WalkComponent},
 ];
 
 @NgModule({

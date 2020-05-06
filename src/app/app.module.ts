@@ -24,6 +24,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { TrainingstopComponent } from './dialog/trainingstop/trainingstop.component';
 import { AngularFireModule } from '@angular/fire';
+import { FooterComponent } from './footer/footer.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { YogaComponent } from './cards/yoga/yoga.component';
+import { WalkComponent } from './cards/walk/walk.component';
 
 
 @NgModule({
@@ -39,6 +43,9 @@ import { AngularFireModule } from '@angular/fire';
     SidenavComponent,
     WelcomeComponent,
     TrainingstopComponent,
+    FooterComponent,
+    YogaComponent,
+    WalkComponent,
     
   ],
   imports: [
@@ -49,7 +56,8 @@ import { AngularFireModule } from '@angular/fire';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MDBBootstrapModule.forRoot(),
    
   ],
   providers: [AuthService,TrainingServiceService,SharedService],

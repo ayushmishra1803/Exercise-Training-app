@@ -20,10 +20,13 @@ export class TrainingServiceService {
 
 
  private availableExercises:Exercise[] =[
-    { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
-    { id: 'touch-toes', name: 'Touch Toes', duration: 180, calories: 15 },
-    { id: 'side-lunges', name: 'Side Lunges', duration: 120, calories: 18 },
-    { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 }
+   { id: '30-min-Walk-challenge', name: '30-min-Walk-challenge', duration: 600, calories: 42.33 },
+    { id: 'Suraya Namaskar', name: 'Suraya Namaskar', duration: 600, calories: 37.8 },
+    { id: 'Halasana', name: 'Halasana', duration: 180, calories: 15 },
+    { id: 'Plank', name: 'Plank', duration: 300, calories: 20},
+    { id: 'Chair Pose', name: 'Chair Pose', duration: 120, calories: 11},
+    {id:'Wheel-Pose',name:'Wheel-pose',duration:60,calories:3},
+    { id: 'Dolpin-Pose',name:'Dolpin-Pose',duration:60,calories: 2.8},
 ];
 
     

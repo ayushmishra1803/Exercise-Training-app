@@ -107,7 +107,7 @@ export class AuthService {
 
 
         this.authChange.next(false);
-        this.router.navigate(['/login']);
+        this.router.navigate(['']);
         this.auth = false;
       }
     }
