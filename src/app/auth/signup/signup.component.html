@@ -1,4 +1,7 @@
 <section class="signup">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h1 class="loginheading">Sign up</h1>
+    <mat-card>
 <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" ngForm  #f="ngForm" (ngSubmit)="onsubmit(f)">
     <mat-form-field>
         <mat-label>Enter the Email</mat-label>
@@ -26,5 +29,21 @@
 
       <button  *ngIf="!isloading" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
         <mat-spinner *ngIf="isloading"></mat-spinner>
+        <div>
+          <hr>
+          connect with us on
+          <hr>
+        </div>
+        <div>
+          <a href="https://www.linkedin.com/in/ayush-mishra-963139174/"> <img class="img"
+              src="assets/image/icons/linked.png"></a>
+          <a href="https://github.com/ayushmishra1803"> <img class="img" src="assets/image/icons/github.png"></a>
+        
+          <a href="mailto:ayushmishra0810@gmail.com"> <img class="img" src="assets/image/icons/gmail.png"></a>
+          <a href="https://www.instagram.com/__ayush_mishra__/"> <img class="img" src="assets/image/icons/instagram.png"></a>
+        
+        </div>
 </form>
+</mat-card>
+</div>
 </section>
