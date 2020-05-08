@@ -1,3 +1,4 @@
+import { FeedbackComponent } from './feedback/feedback.component';
 import { WalkComponent } from './cards/walk/walk.component';
 import { YogaComponent } from './cards/yoga/yoga.component';
 import { TrainingComponent } from './training/training.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'training',component:TrainingComponent,canActivate:[AuthGuard]},
   {path:'yoga',component:YogaComponent},
   {path:'walk',component:WalkComponent},
+  {path:'feedback',component:FeedbackComponent}
 ];
 
 @NgModule({

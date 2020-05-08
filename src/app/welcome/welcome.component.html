@@ -3,8 +3,33 @@
       <img class="img-responsive" src="assets/image/welcome1.jpg">
     </section>
 
-  <div class="welcome" fxLayout.lt-md="column"  fxLayout.gt-md="row"  fxLayoutGap="20px"  fxLayoutAlign="center center">
-    <section>
+
+
+
+    <section fxLayout fxLayoutAlign="center" fxHide.lt-md>
+      <h1 class="head"> Making India Fit </h1>
+      </section>
+
+
+
+      <section fxLayout fxLayoutAlign="center" fxHide.gt-sm>
+        <h1 class="smallhead"> Making India Fit</h1>
+      </section>
+
+
+
+
+      
+ 
+  
+  
+  
+      <div class="welcome" fxLayout.lt-md="column"  fxLayout.gt-md="row"  fxLayoutGap="20px"  fxLayoutAlign="center center">
+    
+    
+    
+    
+        <section>
         <mat-card>
         <mat-card-title>Yoga!</mat-card-title>
          <mat-card-subtitle>Yoga is not a religion, it is a way of living that aims towards a healthy mind in a healthy body.</mat-card-subtitle>
@@ -13,11 +38,14 @@
           mental disciplines to achieve a peaceful body and mind;</mat-card-content>
           <mat-card-actions>
             <button mat-button (click)="yoga()">Read More</button>
-         
+          <button mat-raised-button color="accent" (click)="Start()">Start Now</button>
           </mat-card-actions>
          </mat-card>
     </section>
     
+ 
+ 
+ 
     <section>
       <mat-card>
         <mat-card-title>Walk</mat-card-title>
@@ -28,11 +56,13 @@
         fitness, strengthen bones, reduce excess body fat, and boost muscle power and endurance.</mat-card-content>
         <mat-card-actions>
           <button mat-button (click)="walk()">Read More</button>
+          <button  mat-raised-button color="accent" (click)="Start()">Start Now</button>
     
         </mat-card-actions>
       </mat-card>
-
-    </section>
+   </section>
+    
        
   </div>
+
   </div>

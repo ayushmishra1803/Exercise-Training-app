@@ -12,6 +12,10 @@ export class TrainingServiceService {
   exerciseChanged=new Subject<Exercise>();
  private runningExercise:Exercise;
  private fbsub:Subscription[]=[];
+ 
+
+
+ 
   
 
   finishedExerciseChanged =new Subject<Exercise[]>();

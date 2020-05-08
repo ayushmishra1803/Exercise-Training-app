@@ -5,7 +5,9 @@
         <ul fxLayout class="navigationbar" fxLayoutGap="10px">
             <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li>
             <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+            
             <li *ngIf="isAuth"><a routerLink="/training">Training</a></li> 
+            <li *ngIf="isAuth"><a routerLink="/feedback">Feedback</a></li>
             <li style="cursor: pointer" *ngIf="isAuth" (click)="onLogout()"><a>Logout</a></li>
         </ul>
         </div>

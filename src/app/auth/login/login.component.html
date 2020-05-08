@@ -16,6 +16,13 @@
             <mat-error *ngIf="pass.hasError('minlength')"> Password should be of 8 charater</mat-error>
             <mat-error align="end">{{pass.value?.length}}/8</mat-error>
           </mat-form-field>
+          <br> <!--
+          <section fxLayout="row" fxLayoutAlign="left">
+            <a routerLink="/signup" fxLayoutAlign="before">New Here Sign Up</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a> Forget Password</a>
+          </section>-->
           <button *ngIf="!isloading" mat-raised-button color="primary">Submit</button>
           <mat-spinner *ngIf="isloading"></mat-spinner>
     </form>

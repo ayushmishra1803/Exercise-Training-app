@@ -1,0 +1,26 @@
+<section class="signup">
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" ngForm #f="ngForm"
+        (ngSubmit)="onsubmit(f)">
+        <mat-form-field>
+            <mat-label>Enter You Name</mat-label>
+            <input matInput type="text" placeholder="Enter Name" value="" name="email" ngModel #email="ngModel"
+                required>
+            <mat-error *ngIf="email.hasError('required')"> Email cannot be empty</mat-error>
+            
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter Feedback</mat-label>
+            <input matInput type="text" placeholder="Enter Feedback" value="" name="feedback" ngModel required #feed="ngModel">
+           
+            <mat-error > This can't be empty</mat-error>
+            
+        </mat-form-field>
+
+        
+        
+
+        <button  mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+        
+    </form>
+</section>
