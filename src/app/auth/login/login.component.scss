@@ -1,13 +1,27 @@
 .login
 {
-    padding: 50px;
+    padding: 30px;
+}
+mat-card
+{
+    width: 350px;
+    
 }
 mat-form-field
 {
     width: 300px;
 }
 a{
-    text-decoration: none;
+    text-decoration :none;
     text-align: left;
-    color: white;
+    color:white;
+}
+.loginheading{
+    padding: 20px;
+    font-size: 55px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.img{
+   width:60px;height:60px;
+   padding :10px;
 }
