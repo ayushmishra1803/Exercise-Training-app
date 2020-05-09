@@ -12,7 +12,13 @@ export class TrainingServiceService {
   exerciseChanged=new Subject<Exercise>();
  private runningExercise:Exercise;
  private fbsub:Subscription[]=[];
+ private active:string;
  
+  
+ activeuser(user:string)
+ {
+   this.active=user;
+ }
 
 
  
@@ -63,7 +69,7 @@ export class TrainingServiceService {
 
   completeExercise()
   {
-    this.adddatatodatabse({...this.runningExercise,date:new Date(),state:'completed'});
+    this.adddatatodatabse({...this.runningExercise,date:new Date(),state:'completed',email:this.active});
     this.runningExercise=null;
     this.exerciseChanged.next(null);
   }
@@ -75,13 +81,14 @@ export class TrainingServiceService {
 
   cancelExercise(progress:number)
   {
-    this.adddatatodatabse({ ...this.runningExercise, duration: this.runningExercise.duration * (progress / 100), calories: this.runningExercise.calories * (progress / 100), date: new Date(), state: 'cancelled' });
+    this.adddatatodatabse({ ...this.runningExercise, duration: this.runningExercise.duration * (progress / 100), calories: this.runningExercise.calories * (progress / 100), date: new Date(), state: 'cancelled',email:this.active });
     this.runningExercise = null;
     this.exerciseChanged.next(null);
   }
+  
 
   fetchgetCompletedOrCancelledExercises() {
-    this.fbsub.push(this.db.collection('finishedExercise').valueChanges().subscribe((exercises:Exercise[])=>{
+    this.fbsub.push(this.db.collection('finishedExercise', ref => ref.where('email', '==',this.active)).valueChanges().subscribe((exercises:Exercise[])=>{
       
       this.finishedExerciseChanged.next(exercises);
     }));

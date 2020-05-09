@@ -1,3 +1,7 @@
+import { TrainingServiceService } from './../../services/TrainingService/training-service.service';
+
+import { Userdetails } from './../../interfaces/userdetails/userdetails';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { SharedService } from './../../services/shared/shared.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from './../../services/auth/auth.service';
@@ -11,7 +15,8 @@ import { NgForm } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private  service:AuthService,private shared:SharedService) { }
+  constructor(private  service:AuthService,private shared:SharedService,private db:AngularFirestore,
+   private training:TrainingServiceService) { }
 
   maxDate;
   isloading = false;
@@ -28,10 +33,29 @@ export class SignupComponent implements OnInit {
   }
   onsubmit(f:NgForm)
   {
+  
     this.service.registerUser({
       email:f.value.email,
       password:f.value.password
     })
+    this.adduser({
+      name:f.value.name,
+      email :f.value.email,
+      
+     });
+    this.training.activeuser(f.value.email);
   }
+
+  adduser(user:Userdetails)
+  { 
+    this.db.collection('users').add(user)
+    this.shared.Showsnackbar("Profile Created",null,3000);
+
+  }
+  
+ 
+
+  
+
 
 }

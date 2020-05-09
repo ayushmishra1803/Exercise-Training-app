@@ -1,3 +1,4 @@
+import { SharedService } from './../../services/shared/shared.service';
 import { Subscription } from 'rxjs';
 import { TrainingServiceService } from './../../services/TrainingService/training-service.service';
 import { Exercise } from './../../interfaces/exercise';
@@ -22,7 +23,7 @@ export class PastTrainingComponent implements OnInit,AfterViewInit ,OnDestroy{
 
 
 
-  constructor(private service:TrainingServiceService) { }
+  constructor(private service:TrainingServiceService,private shared:SharedService) { }
 
 
 
@@ -49,6 +50,7 @@ export class PastTrainingComponent implements OnInit,AfterViewInit ,OnDestroy{
   
   
   ngOnInit(): void {
+    this.shared.Showsnackbar('Incase you aur not getting past data please login again',null,3000);
    this.exchangedSub= this.service.finishedExerciseChanged.subscribe((exercise:Exercise[])=>{
       this.dataSource.data=exercise;
     });

@@ -1,3 +1,4 @@
+import { TrainingServiceService } from './../../services/TrainingService/training-service.service';
 import { Subscription } from 'rxjs';
 import { SharedService } from './../../services/shared/shared.service';
 import { AuthService } from './../../services/auth/auth.service';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit ,OnDestroy{
   isloading=false;
   private loadingsub:Subscription;
 
-  constructor(private service:AuthService,private shared:SharedService) { }
+  constructor(private service:AuthService,private shared:SharedService,private training:TrainingServiceService) { }
 
 
   ngOnDestroy(): void {
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit ,OnDestroy{
       email:f.value.email,
       password:f.value.password
     })
+    this.training.activeuser(f.value.email);
   }
 
 }

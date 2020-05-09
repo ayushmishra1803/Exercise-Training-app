@@ -78,6 +78,7 @@ export class AuthService {
 
   logout(){
     this.afauth.signOut();
+    this.service.activeuser(null);
    
   }
 
@@ -99,6 +100,7 @@ export class AuthService {
       {
         this.auth = true;
         this.authChange.next(true);
+        
         this.router.navigate(['/training']); 
       }
       else{
