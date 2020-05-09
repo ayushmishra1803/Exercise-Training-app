@@ -29,11 +29,6 @@ export class AuthService {
 
 
 
-
-
-
-
-
   registerUser(authData:AuthData)
   {
     this.shared.loadingStatechanged.next(true);
@@ -95,6 +90,7 @@ export class AuthService {
 
   AuthListener()
   {
+
     this.afauth.authState.subscribe(result=>{
       if(result)
       {
@@ -114,6 +110,7 @@ export class AuthService {
       }
     }
     )
+    
   }
 
 }

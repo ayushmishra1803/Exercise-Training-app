@@ -29,6 +29,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { YogaComponent } from './cards/yoga/yoga.component';
 import { WalkComponent } from './cards/walk/walk.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { DemoComponent } from './demo/demo/demo.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
     YogaComponent,
     WalkComponent,
     FeedbackComponent,
+    DemoComponent,
     
   ],
   imports: [
