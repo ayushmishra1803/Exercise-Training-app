@@ -1,17 +1,29 @@
 <mat-nav-list>
-    <a mat-list-item   routerLink="/signup" (click)="onclose()"  *ngIf="!isAuth"><mat-icon>face</mat-icon> <span class="nav-caption">Sign-up</span></a>
-    <a mat-list-item routerLink="/login" (click)="onclose()" *ngIf="!isAuth"><mat-icon>input</mat-icon> <span class="nav-caption">Login</span></a>
-   
-    
+    <a mat-list-item routerLink="/signup" (click)="onclose()" *ngIf="!isAuth">
+        <mat-icon>face</mat-icon> <span class="nav-caption">Sign-up</span>
+    </a>
+    <a mat-list-item routerLink="/login" (click)="onclose()" *ngIf="!isAuth">
+        <mat-icon>input</mat-icon> <span class="nav-caption">Login</span>
+    </a>
 
-    <a  mat-list-item routerLink="/training" (click)="onclose()"  *ngIf="isAuth"><mat-icon>accessibility_new</mat-icon> <span class="nav-caption">Training</span></a>
 
-<a mat-list-item routerLink="/feedback" (click)="onclose()" *ngIf="isAuth">
-    <mat-icon>rate_review</mat-icon> <span class="nav-caption">Feedback</span>
-</a>
+
+    <a mat-list-item routerLink="/training" (click)="onclose()" *ngIf="isAuth">
+        <mat-icon>accessibility_new</mat-icon> <span class="nav-caption">Training</span>
+    </a>
+
+    <a mat-list-item routerLink="/demo" (click)="onclose()" *ngIf="isAuth">
+        <mat-icon>ondemand_video</mat-icon> <span class="nav-caption">Tutorial</span>
+    </a>
+
+    <a mat-list-item routerLink="/feedback" (click)="onclose()" *ngIf="isAuth">
+        <mat-icon>rate_review</mat-icon> <span class="nav-caption">Feedback</span>
+    </a>
 
     <mat-list-item>
-    <button mat-icon-button (click)="onLogut()" *ngIf="isAuth"><mat-icon>eject</mat-icon><span class="nav-caption">Logout</span></button>
+        <button mat-icon-button (click)="onLogut()" *ngIf="isAuth">
+            <mat-icon>eject</mat-icon><span class="nav-caption">Logout</span>
+        </button>
     </mat-list-item>
 
 </mat-nav-list>

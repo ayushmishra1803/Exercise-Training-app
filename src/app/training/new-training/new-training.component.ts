@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { NgForm } from '@angular/forms';
 import { Exercise } from './../../interfaces/exercise';
@@ -19,7 +20,7 @@ export class NewTrainingComponent implements OnInit {
 
 
 
-  constructor(private service:TrainingServiceService ,private db:AngularFirestore) { }
+  constructor(private service:TrainingServiceService ,private db:AngularFirestore,private router:Router) { }
 
   ngOnInit(): void
  {
@@ -27,6 +28,10 @@ export class NewTrainingComponent implements OnInit {
   
   }
   
+read()
+{
+  this.router.navigate(['/demo']);
+}
 
  onStartTraining(form:NgForm)
   {

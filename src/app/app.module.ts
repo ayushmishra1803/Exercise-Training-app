@@ -30,6 +30,11 @@ import { YogaComponent } from './cards/yoga/yoga.component';
 import { WalkComponent } from './cards/walk/walk.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { DemoComponent } from './demo/demo/demo.component';
+import { MobiledemoComponent } from './demo/mobiledemo/mobiledemo.component';
+import { MobiledemoplankComponent } from './demo/mobiledemoplank/mobiledemoplank.component';
+import { MobiledemopwheelComponent } from './demo/mobiledemopwheel/mobiledemopwheel.component';
+import { MobiledemochairComponent } from './demo/mobiledemochair/mobiledemochair.component';
+import { MobiledemphalasanaComponent } from './demo/mobiledemphalasana/mobiledemphalasana.component';
 
 
 @NgModule({
@@ -50,6 +55,11 @@ import { DemoComponent } from './demo/demo/demo.component';
     WalkComponent,
     FeedbackComponent,
     DemoComponent,
+    MobiledemoComponent,
+    MobiledemoplankComponent,
+    MobiledemopwheelComponent,
+    MobiledemochairComponent,
+    MobiledemphalasanaComponent,
     
   ],
   imports: [

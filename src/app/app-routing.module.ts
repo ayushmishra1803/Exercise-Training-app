@@ -1,3 +1,7 @@
+import { MobiledemphalasanaComponent } from './demo/mobiledemphalasana/mobiledemphalasana.component';
+import { MobiledemopwheelComponent } from './demo/mobiledemopwheel/mobiledemopwheel.component';
+import { MobiledemoplankComponent } from './demo/mobiledemoplank/mobiledemoplank.component';
+import { MobiledemochairComponent } from './demo/mobiledemochair/mobiledemochair.component';
 import { DemoComponent } from './demo/demo/demo.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { WalkComponent } from './cards/walk/walk.component';
@@ -19,7 +23,11 @@ const routes: Routes = [
   {path:'yoga',component:YogaComponent},
   {path:'walk',component:WalkComponent},
   {path:'feedback',component:FeedbackComponent},
-  { path: 'demo', component: DemoComponent, canActivate: [AuthGuard]}
+  { path: 'demo', component: DemoComponent, canActivate: [AuthGuard]},
+  {path:'mobiledemochair',component:MobiledemochairComponent},
+  {path:'mobiledemoplank',component:MobiledemoplankComponent},
+  {path:'mobiledemopwheel',component:MobiledemopwheelComponent},
+  {path:'mobiledemphalasana',component:MobiledemphalasanaComponent}
 ];
 
 @NgModule({

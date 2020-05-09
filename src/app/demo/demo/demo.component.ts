@@ -1,3 +1,4 @@
+import { PastTrainingComponent } from './../../training/past-training/past-training.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,15 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemoComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onstart()
-  {
+  onstart() {
     this.router.navigate(['/training']);
   }
 
+  readplank() {
+    this.router.navigate(['/mobiledemoplank']);
+  }
+  readhalasana() {
+    this.router.navigate(['/mobiledemphalasana'])
+  }
+
+
+  readchair()
+  {
+    this.router.navigate(['/mobiledemochair']);
+  }
+  readwheel()
+  {
+    this.router.navigate(['/mobiledemopwheel']);
+  }
 
 }
