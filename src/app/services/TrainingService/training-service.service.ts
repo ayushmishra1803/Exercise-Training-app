@@ -13,16 +13,16 @@ export class TrainingServiceService {
  private runningExercise:Exercise;
  private fbsub:Subscription[]=[];
  private active:string;
- 
-  
+
+
  activeuser(user:string)
  {
    this.active=user;
  }
 
 
- 
-  
+
+
 
   finishedExerciseChanged =new Subject<Exercise[]>();
 
@@ -39,7 +39,7 @@ export class TrainingServiceService {
     { id: 'Dolpin-Pose',name:'Dolpin-Pose',duration:60,calories: 2.8},
 ];
 
-    
+
 
 
 
@@ -85,11 +85,11 @@ export class TrainingServiceService {
     this.runningExercise = null;
     this.exerciseChanged.next(null);
   }
-  
+
 
   fetchgetCompletedOrCancelledExercises() {
     this.fbsub.push(this.db.collection('finishedExercise', ref => ref.where('email', '==',this.active)).valueChanges().subscribe((exercises:Exercise[])=>{
-      
+
       this.finishedExerciseChanged.next(exercises);
     }));
   }

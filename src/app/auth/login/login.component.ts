@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit ,OnDestroy{
     this.loadingsub.unsubscribe();
   }
 
- 
- 
+
+
   ngOnInit(): void {
     this.loadingsub=this.shared.loadingStatechanged.subscribe(isload=>{
       this.isloading=isload;
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit ,OnDestroy{
       email:f.value.email,
       password:f.value.password
     })
-    this.training.activeuser(f.value.email);
+
   }
 
 }

@@ -28,7 +28,7 @@ export class PastTrainingComponent implements OnInit,AfterViewInit ,OnDestroy{
 
 
   ngOnDestroy(): void {
-   this.exchangedSub.unsubscribe();  
+   this.exchangedSub.unsubscribe();
   }
 
 
@@ -39,18 +39,18 @@ export class PastTrainingComponent implements OnInit,AfterViewInit ,OnDestroy{
     this.dataSource.filter=filtervalue.trim().toLowerCase();
   }
 
-  ngAfterViewInit(): void 
+  ngAfterViewInit(): void
   {
     this.dataSource.sort=this.sort;
     this.dataSource.paginator=this.Paginator;
 
   }
 
-  
-  
-  
+
+
+
   ngOnInit(): void {
-    this.shared.Showsnackbar('Incase you aur not getting past data please login again',null,3000);
+
    this.exchangedSub= this.service.finishedExerciseChanged.subscribe((exercise:Exercise[])=>{
       this.dataSource.data=exercise;
     });

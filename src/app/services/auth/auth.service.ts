@@ -21,7 +21,7 @@ export class AuthService {
     private shared:SharedService) { }
 
 
- 
+
   authChange=new Subject<boolean>();
   private auth=false;
 
@@ -38,13 +38,13 @@ export class AuthService {
     ).then(result=>{
       this.shared.loadingStatechanged.next(false);
       console.log(result);
-     
+
     })
     .catch(error=>{
       this.shared.loadingStatechanged.next(false);
       this.shared.Showsnackbar(error.message, null, 3000);
     })
-   
+
   }
 
 
@@ -57,14 +57,14 @@ export class AuthService {
   ).then(result => {
     this.shared.loadingStatechanged.next(false);
     console.log(result);
-    
+
   })
     .catch(error => {
-      this.shared.loadingStatechanged.next(false); 
-      
+      this.shared.loadingStatechanged.next(false);
+
       this.shared.Showsnackbar(error.message,null,3000);
-     
-    }) 
+
+    })
 }
 
 
@@ -74,10 +74,10 @@ export class AuthService {
   logout(){
     this.afauth.signOut();
     this.service.activeuser(null);
-   
+
   }
 
-  
+
   isAuth()
   {
     return this.auth ;
@@ -85,7 +85,7 @@ export class AuthService {
 
 
 
-  
+
 
 
   AuthListener()
@@ -94,10 +94,12 @@ export class AuthService {
     this.afauth.authState.subscribe(result=>{
       if(result)
       {
+
+        this.service.activeuser(result.email);
         this.auth = true;
         this.authChange.next(true);
-        
-        this.router.navigate(['/training']); 
+
+        this.router.navigate(['/training']);
       }
       else{
 
@@ -110,7 +112,6 @@ export class AuthService {
       }
     }
     )
-    
   }
 
 }

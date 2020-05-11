@@ -22,18 +22,18 @@ export class SignupComponent implements OnInit {
   isloading = false;
   private loadingsub: Subscription;
 
-  ngOnInit(): void 
+  ngOnInit(): void
   {
     this.loadingsub=this.shared.loadingStatechanged.subscribe(load=>{
       this.isloading=load;
     })
     this.maxDate=new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
-  
+
   }
   onsubmit(f:NgForm)
   {
-  
+
     this.service.registerUser({
       email:f.value.email,
       password:f.value.password
@@ -41,21 +41,21 @@ export class SignupComponent implements OnInit {
     this.adduser({
       name:f.value.name,
       email :f.value.email,
-      
+
      });
-    this.training.activeuser(f.value.email);
+
   }
 
   adduser(user:Userdetails)
-  { 
+  {
     this.db.collection('users').add(user)
     this.shared.Showsnackbar("Profile Created",null,3000);
 
   }
-  
- 
 
-  
+
+
+
 
 
 }

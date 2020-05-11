@@ -5,7 +5,9 @@ import { Exercise } from './../../interfaces/exercise';
 import { TrainingServiceService } from './../../services/TrainingService/training-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/firestore';
-import{map}from'rxjs/operators';
+import { map } from 'rxjs/operators';
+
+
 @Component({
   selector: 'app-new-training',
   templateUrl: './new-training.component.html',
@@ -17,7 +19,8 @@ export class NewTrainingComponent implements OnInit {
 
    exercises:Exercise[]=[];
 
-
+    todaydate=new Date;
+    toodayExercise:Observable<Exercise[]>
 
 
   constructor(private service:TrainingServiceService ,private db:AngularFirestore,private router:Router) { }
@@ -25,9 +28,9 @@ export class NewTrainingComponent implements OnInit {
   ngOnInit(): void
  {
    this.exercises=this.service.getAvailableExercises();
-  
+
   }
-  
+
 read()
 {
   this.router.navigate(['/demo']);
@@ -35,9 +38,9 @@ read()
 
  onStartTraining(form:NgForm)
   {
-    
+
    this.service.startExercise(form.value.exercise);
-   
+
   }
 
 
