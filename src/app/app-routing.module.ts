@@ -1,3 +1,4 @@
+import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.component';
 import { MobiledemphalasanaComponent } from './demo/mobiledemphalasana/mobiledemphalasana.component';
 import { MobiledemopwheelComponent } from './demo/mobiledemopwheel/mobiledemopwheel.component';
 import { MobiledemoplankComponent } from './demo/mobiledemoplank/mobiledemoplank.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:'mobiledemochair',component:MobiledemochairComponent},
   {path:'mobiledemoplank',component:MobiledemoplankComponent},
   {path:'mobiledemopwheel',component:MobiledemopwheelComponent},
-  {path:'mobiledemphalasana',component:MobiledemphalasanaComponent}
+  {path:'mobiledemphalasana',component:MobiledemphalasanaComponent},
+  {path:'forgetpassword',component:ForgetpasswordComponent}
 ];
 
 @NgModule({

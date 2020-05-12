@@ -83,6 +83,17 @@ export class AuthService {
     return this.auth ;
   }
 
+  resetpassword(email:string)
+  {
+    this.afauth.sendPasswordResetEmail(email).then(()=>{
+      alert("Email sent");
+      this.router.navigate(['/login']);
+
+    }).catch(()=>{
+      alert("Try again")
+    })
+
+  }
 
 
 

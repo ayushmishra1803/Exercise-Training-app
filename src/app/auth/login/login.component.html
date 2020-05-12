@@ -4,15 +4,15 @@
 <mat-card>
     <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" ngForm  #f="ngForm" (ngSubmit)="onsubmit(f)">
           <br><br><br>
-    
+
       <mat-form-field>
-     
+
             <mat-label>Enter the Email</mat-label>
             <input matInput  type="email"  placeholder="Enter Email" value=""  name="email"  ngModel  #email="ngModel" required>
             <mat-error *ngIf="email.hasError('required')"> Email cannot be empty</mat-error>
             <mat-error *ngIf="email.hasError('email')"> Email is invalid </mat-error>
           </mat-form-field>
-        
+
           <mat-form-field>
             <mat-label>Enter the Password</mat-label>
             <input matInput type="password" placeholder="Enter password" value="" name="password" ngModel  minlength="8" required #pass="ngModel">
@@ -22,14 +22,14 @@
             <mat-error *ngIf="pass.hasError('minlength')"> Password should be of 8 charater</mat-error>
             <mat-error align="end">{{pass.value?.length}}/8</mat-error>
           </mat-form-field>
-          <br> 
-          <!--
+          <br>
+
           <section fxLayout="row" fxLayoutAlign="left">
             <a routerLink="/signup" fxLayoutAlign="before" >New Here Sign Up</a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a> Forget Password?</a><br><br>
-          </section>-->
+            <a routerLink="/forgetpassword"> Forget Password?</a><br><br>
+          </section>
           <button *ngIf="!isloading" mat-raised-button color="accent">Submit</button>
           <mat-spinner *ngIf="isloading"></mat-spinner>
           <div>
@@ -40,10 +40,10 @@
        <div>
         <a href="https://www.linkedin.com/in/ayush-mishra-963139174/"> <img class="img" src="assets/image/icons/linked.png"></a>
         <a href="https://github.com/ayushmishra1803"> <img class="img" src="assets/image/icons/github.png"></a>
-       
+
         <a href="mailto:ayushmishra0810@gmail.com"> <img class="img" src="assets/image/icons/gmail.png"></a>
         <a href="https://www.instagram.com/__ayush_mishra__/"> <img class="img" src="assets/image/icons/instagram.png"></a>
-        
+
          </div>
         </form>
 </mat-card>

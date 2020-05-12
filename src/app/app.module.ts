@@ -36,6 +36,7 @@ import { MobiledemopwheelComponent } from './demo/mobiledemopwheel/mobiledemopwh
 import { MobiledemochairComponent } from './demo/mobiledemochair/mobiledemochair.component';
 import { MobiledemphalasanaComponent } from './demo/mobiledemphalasana/mobiledemphalasana.component';
 import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.component';
+import { GraphComponent } from './graph/graph.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.co
     MobiledemochairComponent,
     MobiledemphalasanaComponent,
     ForgetpasswordComponent,
+    GraphComponent,
     
   ],
   imports: [
