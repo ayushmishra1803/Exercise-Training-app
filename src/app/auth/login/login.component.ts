@@ -8,34 +8,40 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit ,OnDestroy{
-  isloading=false;
-  private loadingsub:Subscription;
+export class LoginComponent implements OnInit, OnDestroy {
+  isloading = false;
+  private loadingsub: Subscription;
 
-  constructor(private service:AuthService,private shared:SharedService,private training:TrainingServiceService) { }
-
+  constructor(
+    private service: AuthService,
+    private shared: SharedService,
+    private training: TrainingServiceService
+  ) {}
 
   ngOnDestroy(): void {
     this.loadingsub.unsubscribe();
   }
 
-
-
   ngOnInit(): void {
-    this.loadingsub=this.shared.loadingStatechanged.subscribe(isload=>{
-      this.isloading=isload;
-    })
+    this.loadingsub = this.shared.loadingStatechanged.subscribe((isload) => {
+      this.isloading = isload;
+    });
   }
 
-  onsubmit(f:NgForm)
-  {
+  onsubmit(f: NgForm) {
     this.service.login({
-      email:f.value.email,
-      password:f.value.password
-    })
-
+      email: f.value.email,
+      password: f.value.password,
+    });
   }
 
+  facebook() {
+    this.service.facebooklogin();
+  }
+
+  gamil(){
+    this.service.gmaillogin();
+  }
 }

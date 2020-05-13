@@ -11,51 +11,48 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-
-  constructor(private  service:AuthService,private shared:SharedService,private db:AngularFirestore,
-   private training:TrainingServiceService) { }
+  constructor(
+    private service: AuthService,
+    private shared: SharedService,
+    private db: AngularFirestore,
+    private training: TrainingServiceService
+  ) {}
 
   maxDate;
   isloading = false;
   private loadingsub: Subscription;
 
-  ngOnInit(): void
-  {
-    this.loadingsub=this.shared.loadingStatechanged.subscribe(load=>{
-      this.isloading=load;
-    })
-    this.maxDate=new Date();
-    this.maxDate.setFullYear(this.maxDate.getFullYear()-18);
-
+  ngOnInit(): void {
+    this.loadingsub = this.shared.loadingStatechanged.subscribe((load) => {
+      this.isloading = load;
+    });
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
-  onsubmit(f:NgForm)
-  {
-
+  onsubmit(f: NgForm) {
     this.service.registerUser({
-      email:f.value.email,
-      password:f.value.password
-    })
+      email: f.value.email,
+      password: f.value.password,
+    });
     this.adduser({
-      name:f.value.name,
-      email :f.value.email,
-
-     });
-
+      name: f.value.name,
+      email: f.value.email,
+    });
   }
 
-  adduser(user:Userdetails)
-  {
-    this.db.collection('users').add(user)
-    this.shared.Showsnackbar("Profile Created",null,3000);
-
+  adduser(user: Userdetails) {
+    this.db.collection('users').add(user);
+    this.shared.Showsnackbar('Profile Created', null, 3000);
   }
 
+  facebook() {
+    this.service.facebooklogin();
+  }
 
-
-
-
-
+  gamil() {
+    this.service.gmaillogin();
+  }
 }

@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 import { Observable, Subscription, Subject } from 'rxjs';
 
 import { Exercise } from './../interfaces/exercise';
@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit } from '@angular/core';
 
 import { __values } from 'tslib';
+import { getLocaleDateFormat } from '@angular/common';
 
 @Component({
   selector: 'app-graph',
@@ -18,8 +19,9 @@ export class GraphComponent implements OnInit {
 
   data:Observable<Exercise[]>;
   array:number[];
-  calories:Subscription;
+  calories:Subject<Exercise[]>;
   value:number[];
+
 
   ngOnInit(): void {
 
@@ -30,9 +32,12 @@ export class GraphComponent implements OnInit {
         return ({id,...data});
       })
     }))
-
-
-
+    this.data.subscribe(re=>{
+      if(re)
+      {
+          console.log(re)
+      }
+    })
 
 
   }
@@ -47,7 +52,7 @@ export class GraphComponent implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'My Second dataset' }
   ];
 
-  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public chartLabels: Array<any> = ["Monday","Tuesday","Wednesday","Thrusday"];
 
   public chartColors: Array<any> = [
     {

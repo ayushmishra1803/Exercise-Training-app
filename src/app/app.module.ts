@@ -39,6 +39,7 @@ import { ForgetpasswordComponent } from './auth/forgetpassword/forgetpassword.co
 import { GraphComponent } from './graph/graph.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +65,7 @@ import { GraphComponent } from './graph/graph.component';
     MobiledemphalasanaComponent,
     ForgetpasswordComponent,
     GraphComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -76,7 +77,8 @@ import { GraphComponent } from './graph/graph.component';
     AngularFirestoreModule,
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
-   
+
+
   ],
   providers: [AuthService,TrainingServiceService,SharedService],
   bootstrap: [AppComponent],
