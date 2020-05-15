@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { SharedService } from './services/shared/shared.service';
 
 
@@ -6,7 +7,7 @@ import { TrainingServiceService } from './services/TrainingService/training-serv
 import { AuthService } from './services/auth/auth.service';
 import { MaterialmodulesModule } from './modules/materialmodules/materialmodules/materialmodules.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_BOOTSTRAP_LISTENER } from '@angular/core';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth'
 import { AppRoutingModule } from './app-routing.module';
@@ -65,7 +66,6 @@ import { GraphComponent } from './graph/graph.component';
     MobiledemphalasanaComponent,
     ForgetpasswordComponent,
     GraphComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -73,15 +73,14 @@ import { GraphComponent } from './graph/graph.component';
     BrowserAnimationsModule,
     MaterialmodulesModule,
     FormsModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
-
-
   ],
-  providers: [AuthService,TrainingServiceService,SharedService],
+  providers: [AuthService, TrainingServiceService, SharedService, DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[TrainingstopComponent]
+  entryComponents: [TrainingstopComponent],
 })
-export class AppModule { }
+export class AppModule {}

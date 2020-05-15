@@ -6,4 +6,5 @@ export interface Exercise {
     date?: Date;
     state?: 'completed'|'cancelled'|null;
     email?:string;
+    featchDate?:String;
 }

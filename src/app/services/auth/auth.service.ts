@@ -6,8 +6,7 @@ import { auth } from 'firebase/app';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import {  MatSnackBar } from '@angular/material/snack-bar';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -37,14 +36,13 @@ export class AuthService {
         this.shared.Showsnackbar(error.message, null, 3000);
       });
   }
-  facebooklogin()
-  {    this.shared.loadingStatechanged.next(true);
-       this.afauth.signInWithPopup(new auth.FacebookAuthProvider());
-
+  facebooklogin() {
+    this.shared.loadingStatechanged.next(true);
+    this.afauth.signInWithPopup(new auth.FacebookAuthProvider());
   }
   gmaillogin() {
-       this.shared.loadingStatechanged.next(true);
-   this.afauth.signInWithPopup(new auth.GoogleAuthProvider());
+    this.shared.loadingStatechanged.next(true);
+    this.afauth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
   login(authData: AuthData) {

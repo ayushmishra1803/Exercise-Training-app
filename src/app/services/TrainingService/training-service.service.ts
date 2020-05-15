@@ -2,6 +2,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Exercise } from './../../interfaces/exercise';
 import { Injectable } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 
 @Injectable({
@@ -18,6 +19,10 @@ export class TrainingServiceService {
  activeuser(user:string)
  {
    this.active=user;
+ }
+ retrunactiveuser()
+ {
+   return this.active;
  }
 
 
@@ -69,7 +74,9 @@ export class TrainingServiceService {
 
   completeExercise()
   {
-    this.adddatatodatabse({...this.runningExercise,date:new Date(),state:'completed',email:this.active});
+      let s=new Date();
+      let x = this.date.transform(s, 'dd-MM-yyyy').toString();
+    this.adddatatodatabse({...this.runningExercise,date:new Date(),featchDate:x,state:'completed',email:this.active});
     this.runningExercise=null;
     this.exerciseChanged.next(null);
   }
@@ -80,8 +87,17 @@ export class TrainingServiceService {
 
 
   cancelExercise(progress:number)
-  {
-    this.adddatatodatabse({ ...this.runningExercise, duration: this.runningExercise.duration * (progress / 100), calories: this.runningExercise.calories * (progress / 100), date: new Date(), state: 'cancelled',email:this.active });
+  {  let s = new Date();
+     let x = this.date.transform(s, 'dd-MM-yyyy').toString();
+    this.adddatatodatabse({
+      ...this.runningExercise,
+      duration: this.runningExercise.duration * (progress / 100),
+      calories: this.runningExercise.calories * (progress / 100),
+      date: new Date(),
+      featchDate: x,
+      state: 'cancelled',
+      email: this.active,
+    });
     this.runningExercise = null;
     this.exerciseChanged.next(null);
   }
@@ -106,5 +122,5 @@ export class TrainingServiceService {
     this.fbsub.forEach(sub=>sub.unsubscribe());
   }
 
-  constructor(private db:AngularFirestore) { }
+  constructor(private db:AngularFirestore,private date :DatePipe) { }
 }

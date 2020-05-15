@@ -1,8 +1,15 @@
-<div style="display: block">
-  <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels" [colors]="chartColors"
-    [options]="chartOptions" [legend]="true" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+<div style="display: block;">
+  <canvas
+    mdbChart
+    [chartType]="chartType"
+    [datasets]="chartDatasets"
+    [labels]="chartLabels"
+    [colors]="chartColors"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  >
   </canvas>
 </div>
-<ul >
-<li *ngFor="let d of data  | async" [value]="d.calories">{{d.calories}}</li>
-</ul>
+<button (click)="onsubmit()">Click me</button>
