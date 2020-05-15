@@ -1,4 +1,5 @@
-<div style="display: block;">
+
+<section  style="display: block;" >
   <canvas
     mdbChart
     [chartType]="chartType"
@@ -11,5 +12,9 @@
     (chartClick)="chartClicked($event)"
   >
   </canvas>
+
+</section>
+<div class="but">
+<button  mat-raised-button color="accent" (click)="onsubmit()">Click me</button>
 </div>
-<button (click)="onsubmit()">Click me</button>
+
