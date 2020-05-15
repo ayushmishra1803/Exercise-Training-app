@@ -18,12 +18,10 @@ import { controllers } from 'chart.js';
 export class GraphComponent implements OnInit, OnDestroy {
   constructor(
     private db: AngularFirestore,
-    private servise:TrainingServiceService,
+    private servise: TrainingServiceService,
     private cd: ChangeDetectorRef,
-    public datepipe: DatePipe,
-
+    public datepipe: DatePipe
   ) {}
-
 
   calories: Array<number[]> = [];
   date: Array<String[]> = [];
@@ -32,8 +30,8 @@ export class GraphComponent implements OnInit, OnDestroy {
   private user;
 
   ngOnInit(): void {
-     this.user=this.servise.retrunactiveuser();
-      console.log(this.user);
+    this.user = this.servise.retrunactiveuser();
+    console.log(this.user);
     this.db
       .collection('finishedExercise', (ref) =>
         ref.where('email', '==', this.user)
@@ -68,7 +66,6 @@ export class GraphComponent implements OnInit, OnDestroy {
         this.cd.detectChanges();
         console.log(this.date[0]);
       });
-
   }
 
   public chartType: string = 'line';
@@ -78,8 +75,8 @@ export class GraphComponent implements OnInit, OnDestroy {
 
   public chartColors: Array<any> = [
     {
-      backgroundColor: 'rgba(105, 0, 132, .2)',
-      borderColor: 'rgba(200, 99, 132, .7)',
+      backgroundColor: 'rgb(230,230,250)',
+      borderColor: 'rgb(141, 102, 247)',
       borderWidth: 2,
     },
   ];
@@ -101,10 +98,10 @@ export class GraphComponent implements OnInit, OnDestroy {
       },
     ];
     let s = [...this.date[0]];
-   console.log(s);
+    console.log(s);
 
     this.chartLabels = s;
-    console.log(this.chartLabels)
+    console.log(this.chartLabels);
   }
 
   ngOnDestroy() {
