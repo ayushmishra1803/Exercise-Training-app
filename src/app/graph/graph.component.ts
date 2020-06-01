@@ -5,7 +5,7 @@ import { Subject, Observable } from 'rxjs';
 import { Exercise } from './../interfaces/exercise';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { controllers } from 'chart.js';
+
 
 
 
