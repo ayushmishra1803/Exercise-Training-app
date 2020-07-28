@@ -16,7 +16,7 @@ export class AuthService {
     private router: Router,
     private afauth: AngularFireAuth,
     private service: TrainingServiceService,
-    private matsncakebar: MatSnackBar,
+
     private shared: SharedService
   ) {}
 
